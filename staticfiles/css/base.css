@@ -1,0 +1,173 @@
+.errorlist{
+    margin-top: 5px;
+    list-style: none;
+    color: red;
+    scroll-behavior: smooth;
+}
+#cke_id_discription{
+    width: 79pc !important;
+}
+
+.catd_hover{
+    transition: 0.5s;
+    background-color: red;
+}
+
+.edite_delete{
+    min-width: 12pc;
+    max-width: 12pc;
+    display: inline-flex;
+    float: right;
+    position: relative;
+    right: 13pc;
+}
+.crt-bd{
+    min-width: 24rem;
+    max-width: 24rem;
+    border-right:  1px solid black;
+    border-left:   1px solid  black;
+}
+.cd-ft{
+    min-width: 24rem;
+    max-width: 24rem;
+    margin-top: -1.5pc;
+    border-left: 1px solid  black;
+    border-right: 1px solid  black;
+    border-bottom: 1px solid black;
+}
+.django-ckeditor-widget{
+    display: flex!important;
+}
+#cke_id_description{
+    width: 100% !important;
+}
+.dropdown-toggle::after {
+    content: "";
+    color: #0891a7;
+}
+
+.nav-link{
+    letter-spacing: 1.7px !important;
+    margin: 0px 15px;
+}
+.active{
+    text-shadow: 0px 0px 2px black;
+}
+#navProfileImag{
+    height: 3pc;
+    width: 3pc;
+    border-radius: 50%;
+}
+.navProfile{
+    position: relative;
+    list-style: none;
+}
+
+.home-dish-li{
+    display: flex;
+    align-items: center;
+}
+.img-hum{
+    display: none;
+}
+
+.title-truncate{
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.card_ancor{
+    text-decoration: none;
+    color: black;
+    max-width:27vw;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5px 5px;
+    border: none !important;
+    overflow: hidden;
+}
+.card_ancor:hover{
+    color: black;
+    text-shadow: 1px 1px 1px rgba(32, 31, 31, 0.205);
+}
+.blogcard{
+    z-index: -1;
+    max-width: 25vw;
+    min-height: 15vw;
+}
+.thum-img{
+    height: 10rem;
+    min-width: 24rem;
+    max-width: 24rem;
+    border-left: 1px solid  black;
+    border-right: 1px solid  black;
+}
+
+
+.dropdown-menu[data-bs-popper] {
+    left: -60px !important;
+}
+
+.modal-footer{
+    justify-content: space-between !important;
+}
+.dropdown-menu[data-bs-popper] {
+    right: -41px !important;
+    left: 2pc !important;
+    background-color: rgba(32, 31, 31, 0.205);
+}
+.navbar-light .navbar-toggler {
+    margin-top: 1pc;
+}
+
+
+/* ----------> card template css */
+/* Prevent image stretching as it's resized */
+.card-img-top {
+    object-fit: cover;
+}
+
+/* Make all cards in row the same height */
+.row {
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.row > div[class*='col-'] {
+  display: flex;
+}
+
+/* Hover effects */
+.card {
+  transition: -webkit-transform 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.01, 1.01);
+}
+
+/* Responsive design for image heights */
+@media (min-width: 576px) { 
+  .card-img-top {
+    max-height: 50vw;
+  }
+}
+
+@media (min-width: 768px) { 
+  .card-img-top {
+    height: 30vw;
+  }
+}
+
+@media (min-width: 992px) { 
+  .card-img-top {
+    height: 20vw;
+  }
+}
+
+@media (min-width: 1200px) { 
+  .card-img-top {
+    height: 20vw;
+  }
+}
+

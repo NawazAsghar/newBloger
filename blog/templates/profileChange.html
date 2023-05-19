@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %}Change Profile form{% endblock title %}
+{% block content %}
+<div class="container" style="min-height: 36.2pc;">
+ <div class="row my-3">
+  <div class="col-sm-6 flex-column offset-sm-3">
+   <h3 class="mt-5 text-center"style='text-shadow: 1px 1px 2px black;'>Chagnge Profile</h3>
+    <form  enctype="multipart/form-data" class='shadow mt-4 p-5' method="post" novalidate>{% csrf_token %}
+        {{ form.non_field_errors }}
+        {% for field in form %}
+            {{field.label_tag}}
+            {{field|add_class:'form-control mt-3'}} 
+            {{field.errors}} <br>
+        {% endfor %}
+        <div class="d-flex justify-content-between mt-3">
+            <a href='{% url 'profileView' %}' class='btn btn-danger'>Cancel</a>
+            <input type="submit" class='btn btn-primary' value="Save">
+        </div>
+        <br>
+    </form>
+  </div>
+ </div>
+</div>
+{% endblock content %}
+

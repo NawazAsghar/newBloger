@@ -1,0 +1,16 @@
+{% extends 'base.html' %}  
+{% block title %}About{% endblock title %} 
+{% block content %}
+<div class="m-5 aboutPage" style="min-height: 37.8pc;">
+    <h1 class='aboutH1'>Hi there,</h1>
+    <div class="mx-3 fs-4"><br>
+        <h5>About site</h5>
+        <p class="aboutPeras">This is the blog site on which you can share your knowledge with others. Before post, you have to {% if request.user.is_authenticated %}login{% else %}<a href="{% url 'login' %}">login</a>{% endif %} if already register if not so {% if request.user.is_authenticated %}register{% else %}<a href="{% url 'signup' %}">register</a>{% endif %}  and then login to post.</p><br>
+        <h5>Why it's the best</h5>
+        <p class="aboutPeras" >Basically, you can perform a CRUD (create read update and delete) operation with your posts/blogs. For UX we provide simple paginations to get your favorite post fast.</p><br>
+        <h5>About developer</h5>
+        <p class="aboutPeras" >I am NawazAsghar. A student and full-stack web developer. Currently, I’m trying to freelance at Upwork and Fiverr. </p>
+    </div>
+</div>
+
+{% endblock content %}

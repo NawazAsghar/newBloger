@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block title %}Profile{% endblock title %}
+{% block content %}
+<div class="container" style="min-height: 35pc;">
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3">
+
+    <div class="shadow p-5 mt-5">
+      <h3 class=" text-center" style='text-shadow: 1px 1px 2px black;'>Your Profile</h3>
+      <a  class='btn btn-light' href="{% url 'changeProfile' %}" style="float: right;margin-top: -4pc;"> <i class="far fa-edit"></i> Edit</a>
+      <div class="d-flex flex-column justify-content-center text-left mt-5">
+        <div class="text-center">
+          <img src="{{data.profileImg.url}}" style="width: 8pc;border-radius: 4pc;height: 8pc;">
+        </div>
+        <div class="mt-4">
+          <p class='m-2' id='frist_name'><strong>First Name: </strong> <span class='fs-4'>{{data.frist_name}}</span></p>
+          <p class='m-2' id='last_name'><strong>Last Name: </strong> <span class='fs-4'>{{data.last_name}}</span></p>
+          <p class='m-2' id='email'><strong>Email: </strong><span class='fs-4'>{{data.email}}</span></p>
+          <p class='m-2' id='all-posts'><strong>Number of Posts: </strong><span class='fs-4'>{{allPosts}}</span></p>
+        </div>
+        <br>
+      </div>
+    </div>
+
+  </div>
+ </div>
+</div>
+{% endblock content %}
+

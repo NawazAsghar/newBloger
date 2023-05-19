@@ -1,0 +1,70 @@
+@media (max-width: 550px) {
+    .img-hum{
+        display: flex;
+    }
+    .disk-pro-img{
+        display: none;
+    }
+    .aboutPage{
+        margin: 15px 1px !important;
+    }
+    .cards_area{
+        flex-direction: column;
+    }
+    .card_ancor{
+        max-width: 93vw;
+        margin: 5px 0px;
+    }
+    .inner_card{
+        max-width: 93vw;
+    }
+    .title-truncate{
+        width: 300px;
+    }
+    .edite_delete {
+        margin-top: 5px;
+        right: 5pc;
+    }
+    .aboutH1{
+        text-align: center!important;
+    }
+    .editeBlogH1{
+        text-align: center;
+    }
+    .aboutPeras{
+        font-size: 1rem;
+        text-align: justify;
+    }
+    .cd-ft{
+        min-width: 100%;
+    }
+    .navProfile {
+        top: -10px;
+    }
+    .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+        align-items: start;
+    }
+    .responsive_margin{
+        margin-top: -3pc !important;
+    }
+    .dropdown-menu[data-bs-popper] {
+        background-color: rgb(30 28 28 / 72%);
+    }
+    .dropdown-item {
+        color: #ddf1f0f0;
+    }
+    .home-response-li{
+        background: #efefef;
+        padding: 2pc;
+        filter: drop-shadow(0px 5px 8px rgba(32, 31, 46, 0.596));
+    }
+    .del-eid-respons{
+        margin-top: 1pc;
+    }
+}
+
+@media (max-width: 350px){
+    .title-truncate{
+        width: 250px;
+    }
+}

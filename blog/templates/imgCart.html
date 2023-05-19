@@ -1,0 +1,53 @@
+{% load humanize %}
+{% load static %}
+<div class="my-5 cards_area responsive_margin">
+
+    {% comment %} {% for blog in blogs %}
+        <a href="{% url 'blogview' blog.slug %}" class='card my-3 card_ancor' data-aos="slide-down">
+            <div class="card-group card-deck" >
+                <div class='inner_card'>
+                    {% if blog.thumbnail %}<img class="card-img-top thum-img" src="{{blog.thumbnail.url}}" alt="Card image cap">{% endif %}
+                        
+                    <div class="card-body crt-bd">
+                    {% if blog.title %}
+                        <h5 class="card-title title-truncate">{{blog.title|safe}}</h5>
+                    {% endif %}
+                    {% if blog.description %}
+                        <p class="card-text" style="max-width:1pc;">{{blog.description|safe|slice:":150"}}...</p>
+                    {% endif %}
+                    </div>
+                    <div class="card-footer cd-ft">
+                        <small class="text-muted" style="background: #f7f7f7;"><b>Created:</b><b>LastUpdated:</b> {{blog.updated_date|naturaltime}}</small>
+                        <div class="edite_delete">
+                            <a class="btn btn-info mx-5" href="{% url 'editeblog' blog.slug %}">Edite</a>
+                            <form action="{% url 'deletePost' blog.slug %}" method="post">{% csrf_token %}
+                                <input type="submit" value="Delte" class='btn btn-danger'>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+{% endcomment %}
+
+<div class="row">
+    <!-- the cols in this div change the number of cards per row depending on screen size and the mb-4 adds space below cards if they spill over into the next row-->
+    {% for blog in blogs %}
+        <a href="{% url 'blogview' blog.slug %}" class="col-12 col-md-6 col-lg-4 mb-4 card_ancor">
+            <div class="card">
+                {% if blog.thumbnail %}
+                    <img class="card-img-top" src="{{blog.thumbnail.url}}" alt="Card image cap">
+                {% endif %}
+                <div class="card-body">
+                    {% if blog.title %}
+                            <h5 class="card-title title-truncate">{{blog.title|safe}}</h5>
+                    {% endif %}
+                    {% if blog.description %}
+                            <p class="card-text">{{blog.description|safe|slice:":150"}}...</p>
+                    {% endif %}
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>

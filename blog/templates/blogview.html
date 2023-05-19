@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}{{blog.title}}{% endblock title %}
+{% block content %}
+<div style="min-height: 34pc;">
+    <p class='fs-2 mt-5 d-flex flex-column' style="font-family: 'Noto Serif', serif;">{{blog.title|safe}}</p>
+    {% if blog.thumbnail %}<img src="{{blog.thumbnail.url}}" style="width: 100%;height: 25pc;">{% endif %}
+        
+    <p class='fs-4 px-4 text-secondary mt-5'>{{blog.description|safe}}</p>
+    <div class="d-flex justify-content-between">
+        <div class="d-flex align-items-center justify-content-between flex-wrap" style='width:100%'>
+            <span class="fs-5 m-2"><b>Posted By: </b> <span class="text-success">{{blog.auther}}</span></span>
+            <span class="fs-5 m-2"><b>Posted On: </b> <span class="text-success"> {{blog.created_date}}</span></span>
+            <span class="fs-5 m-2"><b>Last Update: </b> <span class="text-success"> {{blog.updated_date}}</span></span>
+            {% if auther %}
+                <div class="d-flex align-items-center del-eid-respons">
+                    <a class="btn btn-info mx-5" href="{% url 'editeblog' blog.slug %}">Edite</a>
+                    <form action="{% url 'deletePost' blog.slug %}" method="post">{% csrf_token %}
+                        <input type="submit" value="Delte" class='btn btn-danger'>
+                    </form> 
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

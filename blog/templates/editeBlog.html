@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %}Edite Blog{% endblock title %}
+{% block content %}
+<div style="min-height: 47.7pc;">
+    <h1 class='mt-5 editeBlogH1'>Edite Your Blog.</h1>
+    <form method="post" enctype="multipart/form-data" class='m-5' novalidate>{% csrf_token %}
+        {% for field in form %}
+            {{field.label_tag}}
+            {{field|add_class:'form-control'|safe}}<br><hr>
+            {{field.errors}}
+            {{form.media}}
+        {% endfor %}
+        <div class="d-flex justify-content-between">
+            <a class='btn btn-lg btn-danger my-2' href="{% url 'dashboard' %}">Cancel</a>
+            <input type="submit" class='btn btn-lg btn-primary my-2' value='Update'>
+        </div>
+    </form>
+</div>
+{% endblock content %}

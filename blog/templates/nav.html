@@ -1,0 +1,59 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light fs-4 shadow-sm" style="background: hsl(0deg 0% 97% / 90%);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    transition: opacity .3s ease-in-out;">
+  <div class="container-fluid">
+        <div class="img-hum">
+          {% include 'hameburger.html' %}
+        </div>
+      {% if request.user.is_authenticated %}
+      <div class="disk-pro-img">
+        <li class="nav-item navbar-brand navProfile">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" style="color: #000;">
+                {% if  request.user.profile.profileImg %}
+                  <img id="navProfileImag" src="{{request.user.profile.profileImg.url |default_if_none:'#'}}" alt="">
+                {% else %}
+                  <img id="navProfileImag" src="{% static 'images/logo.png' %}" alt="">
+                {% endif %}
+                </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'profileView' %}">Profile</a></li>
+                        <li><a class="dropdown-item" href="{% url 'addblog' %}">AddNewPost</a></li>
+                        <li><a class="dropdown-item"  href="{% url 'changePass' %}">ChangePassword</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#">logout</a></li>
+                    </ul>
+        </li>
+      </div>
+      {% endif %}
+    
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item home-dish-li">
+          <a class="nav-link {{home}}" href="{% url 'home' %}">HOME</a>
+        </li>
+        <li class="nav-item">
+              <a class="nav-link {{about}}" href="{% url 'about' %}">ABOUT</a>
+          </li>
+        {% if request.user.is_authenticated %}
+            <li class="nav-item home-dish-li">
+                <a class="nav-link {{dashboard}}" href="{% url 'dashboard' %}">YOURPOST</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link {{login}}" href="{% url 'login' %}">LOGIN</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{signup}}" href="{% url 'signup' %}">SIGNUP</a>
+            </li>
+        {% endif %}
+    
+      </ul>
+    </div>
+  </div>
+</nav>

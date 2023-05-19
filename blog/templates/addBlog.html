@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %} 
+{% block title %}Add new Blog{% endblock title %}
+{% block content %}
+<div>
+    {% if messages %}
+        {% for message in messages %}
+            <div {% if message.tags %} id='#msg-alert' class="alert my-3 alert-{{message.tags}} alert-dismissible fade show" {% endif %} role="alert">
+                <strong>{{message.tags}}!</strong> <span>{{ message }}</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    <form class='mx-3 mt-5' enctype='multipart/form-data' method="post" novalidate>{% csrf_token %}
+        {% for field in form %}
+            <div class="mb-3">
+                {{field.label_tag}}
+                {{field|add_class:'form-control'|safe}}
+                {{field.errors}}
+            </div>
+            {{form.media}}
+        {% endfor %}  
+        
+        <div class="d-flex justify-content-between">
+            <a class='btn btn-lg btn-danger my-2' href="{% url 'dashboard' %}">Cancel</a>
+            <button type="submit" class='btn btn-lg btn-primary my-2'>Add</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

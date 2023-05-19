@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6118705548771745"
+     crossorigin="anonymous"></script>
+    {% load static %}
+    <meta name="google-site-verification" content="O5LWrRlZQs1kuNjmXCtkQ2UXbT4NviwCOuUjcz9QwU0" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap" rel="stylesheet">
+
+    {% block css_link %}{% endblock css_link %}
+    <title>{% block title %}{% endblock title %}</title>
+  </head>
+  <body>
+    {% block nav %} {% include 'nav.html' %} {% endblock nav %}
+
+    <div class="container">
+        {% block content %}{% endblock content %}
+    </div>
+
+	    <!-- Start Footer -->
+    <footer class="container-fluid text-center p-2 mt-5 d-flex" style="height: 5pc; align-items: center; justify-content: center; flex-wrap: wrap;background: hsl(0deg 0% 95% / 90%);">
+        <small class="text-black">Copyright &copy; 2021 || Develope by NawazAsghar </small>
+    </footer> <!-- End Footer -->
+
+
+<!-- Logout -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel" style='text-shadow: 1px 1px 2px black;'>Logout</h5> <br> <br>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to logout?<br>This  action will clear your <b>session</b> and <b>cookies</b>. <br><br>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+            <a class='btn btn-danger' href="{% url 'logout' %}">Yes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script>
+        var info_messages = document.getElementsByClassName('alert');
+        setTimeout(function(){
+            for (var i = 0; i < info_messages.length; i ++) {
+                // Set display attribute as !important, neccessary when using bootstrap
+                info_messages[i].setAttribute('style', 'display:none !important');
+            }
+        }, 5000);
+    </script>
+  </body>
+</html>
+

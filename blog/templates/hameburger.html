@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.topnav {
+    position: relative;
+    right: -2pc;
+}
+
+.topnav #myLinks {
+    display: none;
+    list-style: none;   
+}
+.topnav a {
+  padding: 14px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: calc(1.275rem + .3vw)!important;
+  color: black;
+}
+
+</style>
+</head>
+<body>
+<!-- Top Navigation Menu -->
+<div class="topnav">
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        {% if  request.user.profile.profileImg %}
+                <img id="navProfileImag" src="{{request.user.profile.profileImg.url |default_if_none:'#'}}" alt="">
+        {% else %}
+                <img id="navProfileImag" src="{% static 'images/logo.png' %}" alt="">
+        {% endif %}
+  </a>
+  <div id="myLinks">
+    <li><a class="dropdown-item" href="{% url 'profileView' %}">Profile</a></li>
+    <li><a class="dropdown-item" href="{% url 'addblog' %}">NewBlog</a></li>
+    <li><a class="dropdown-item"  href="{% url 'changePass' %}">ChangePassword</a></li>
+    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#">logout</a></li>
+  </div>
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+
+</body>
+</html>

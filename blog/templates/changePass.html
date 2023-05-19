@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Dashbord{% endblock title %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="container" style="min-height: 36.2pc;">
+    {% if messages %}
+        {% for message in messages %}
+            <div {% if message.tags %} id='#msg-alert' class="alert my-3 alert-{{message.tags}} alert-dismissible fade show" {% endif %} role="alert">
+                <strong>{{message.tags}}!</strong> <span>{{ message }}</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3">
+   <h3 class="mt-5 text-center" style='text-shadow: 1px 1px 2px black;'>Change your password</h3>
+   <form method='post' novalidate class="shadow mt-4 p-5"> {% csrf_token %}
+        {{form.non_field_errors}}
+        {% for input in form %}
+          {{input.label_tag}}
+          {{input|add_class:'form-control m-3'}}
+          {{input.errors}}
+        {% endfor %} 
+    <small><a href="#" title='Not avilable yet !'>Rest Password ?</a></small> <br>
+    <input type="submit" class="btn btn-primary mt-4" value="Change">
+    <br>
+   </form>
+  </div>
+ </div>
+</div>
+
+{% endblock content %}

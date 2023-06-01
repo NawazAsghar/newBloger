@@ -94,12 +94,23 @@ REST_FRAMEWORK = {
     ]
 }
 
+STATIC_URL = '/static/'
+LOGIN_URL = "/login/"
+MEDIA_URL = '/media/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# or 
+# STATIC_ROOT = '/home/user/public_html/static'
+
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR, 'static')
 ]
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
-LOGIN_URL = "/login/"
-MEDIA_URL = '/media/'
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+) 
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
